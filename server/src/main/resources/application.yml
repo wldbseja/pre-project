@@ -1,0 +1,58 @@
+
+spring:
+#   h2:
+#     console:
+#       enabled: true
+#       path: /h2-console
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://stackoverflow.cc6mvevjvrmi.ap-northeast-2.rds.amazonaws.com:3306/test_ksh?characterEncoding=UTF-8&serverTimezone=UTC
+    username: admin
+    password: adminstack28
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 491567044577-acj81dopm7f8njrf4d2b73p1hrljuq4v.apps.googleusercontent.com
+            clientSecret: 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
+            scope:
+              - email
+              - profile
+
+  redis:
+    host: localhost
+    port: 6379
+
+  data:
+    redis:
+      repositories:
+        enabled: false
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+jwt:
+  key: asdfqwerasdfqwerasdfqwerasdfqwerasdfasdfasdfasdf
+  access-token-expiration-minutes: 1
+  refresh-token-expiration-minutes: 200
+
+logging:
+  file:
+    name: logs/logging.log
+  level:
+    spring:
+      server:
+        auth: debug
+
